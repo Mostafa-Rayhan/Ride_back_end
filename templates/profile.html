@@ -1,0 +1,255 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Form</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.4/css/bootstrap.min.css" 
+    integrity="sha512-FOS5ANNUsuvefA5Fm6hZBLsxqfF105LIysEgV8VNz29jZLVYIhI+MOLKPBmMXgkHhARFHf5pE7KbXOLE6TXW0A==" 
+    crossorigin="anonymous" />
+
+    <style>
+        body{
+            background-color: lightseagreen;
+
+        }
+        form{
+            margin: 70px;
+            background-color: thistle;
+        }
+        .h{
+            background-color: #F7941E;
+            padding: 40px;
+            font: 1em sans-serif;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            color: green;
+        }
+        .form-row{
+            margin: 50px;
+        }
+        .btn{
+          align-content: center;
+          margin-left: 40%;
+        }
+        .radios{
+          margin: 18px;
+        }
+        
+    </style>
+</head>
+<body>
+    <form action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {% if status %}
+            <div class="alert alert-primary">{{ status }}</div>
+        {% endif %}
+        <div class="h">
+            <h1 align="center">Profile Update</h1>
+        </div>
+{#        {% for fm in form %}#}
+{#        <div class="form-row">#}
+{#            <div class="form-group col-md-6">#}
+{#                    {fm.label_tag}} {{fm}} <small class="text-danger">{{fm.errors|striptags}}</small>#}
+{#                <label for="userName">User Name</label>#}
+{#                  <input type="text" class="form-control" id="firstName" name="firstName" placeholder="First name" value="{{ profileForm.firstName }}">#}
+{#                {{ form.userName }}#}
+{#            </div>#}
+{#            <div class="form-group col-md-6">#}
+{#              <label for="inputEmail">Email</label>#}
+{#              <input type="email" class="form-control" name="email" id="inputEmail4" placeholder="Email" value="{{ user.email }}">#}
+{#                {{ form.email }}#}
+{#            </div>#}
+{#        {% endfor %}#}
+{##}
+{#        </div>#}
+        <br>
+        <div class="form-row">
+
+            <div class="form-group col-md-6">
+                <label for="inputNumber">Phone Number</label>
+                <input type="text" class="form-control" name="phoneNumber" id="inputPhone" placeholder="+880" value="{{ profileForm.phoneNumber }}">
+{#                {{ form.phoneNumber }}#}
+            </div>
+
+            <div class="form-group col-md-6">
+                <label for="inputAddress">Address</label>
+{#                <input type="text" class="form-control" name="address" id="inputAddress" placeholder="1234 Main St" value="{{ profileForm.address }}">#}
+                {{ form.address }}
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputNumber">Licence</label>
+{#                <input type="text" class="form-control" name="licence" placeholder="123..." value="{{ profileForm.licence }}">#}
+                {{ form.licence }}
+            </div>
+
+            <div class="form-group col-md-6">
+                <label for="inputNumber">NID No</label>
+{#              <input type="text" class="form-control" name="nidNo" id="inputAddress" placeholder="123..." value="{{ profileForm.nidNo }}">#}
+                {{ form.nidNo }}
+            </div>
+
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputNumber">Registration Plate No</label>
+{#              <input type="text" class="form-control" name="nidNo" id="inputAddress" placeholder="" value="{{ profileForm.nidNo }}">#}
+                {{ form.plateNo }}
+            </div>
+            <div class="form-group col-md-6">
+                <label for="inlineFormCustomSelectPref">Vehicle Type</label>
+                {{ form.vehicle }}
+{#                <select class="form-control" id="inlineFormCustomSelectPref">#}
+{#                    <option value="1">Bike</option>#}
+{#                    <option value="2">Car</option>#}
+{#                    <option value="3">CNG</option>#}
+{#                </select>#}
+            </div>
+
+{#          <div  style="margin-right: 12px;"class> <!--="form-group col-md-6"-->#}
+{#            <label for="exampleFormControlFile1">Licence Photo</label>#}
+{#            <input type="file" class="form-control-file" name="photo" id="exampleFormControlFile1" value="{{ profileForm.photo }}">#}
+{#              {{ form.photo }}#}
+{#          </div>#}
+        </div>
+
+        <div class="form-row">
+
+         </div>
+
+        <br>
+        <br>
+        <br>
+        <!---
+              <div class="radios">
+                  <div class="form-row">
+                    <div class="row">
+                      <legend class="col-form-label col-sm-2 pt-0">Gender</legend>
+                      <div class="col-sm-10">
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+                          <label class="form-check-label" for="gridRadios1">
+                            Male
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+                          <label class="form-check-label" for="gridRadios2">
+                            Female
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+
+            --->
+        <div>
+            <input type="submit" class="btn btn-primary btn-lg" value="Submit" >
+{#            <a class="btn btn-success btn-lg" href="{% url 'profile_view' %}" role="button" >Link</a>#}
+            <button type="button" class="btn btn-success btn-lg" style="margin: 40px;">Reset</button>
+        </div>
+    </form>
+</body>
+</html>
+{#        <!-- #}
+{#        <div class="form-row">#}
+{#            <div class="form-group col-md-4">#}
+{#                <label for="inlineFormCustomSelectPref">Religion</label>#}
+{#                <select class="form-control" id="inlineFormCustomSelectPref">#}
+{#                    <option selected>Choose...</option>#}
+{#                    <option value="1">Islam</option>#}
+{#                    <option value="2">Hindu</option>#}
+{#                    <option value="3">Bhuddo</option>#}
+{#                    <option value="3">Chistran</option>#}
+{#                    <option value="3">Other</option>#}
+{#                </select>#}
+{#            </div>           #}
+{#         </div>#}
+{#         <div class="form-row">#}
+{#            <div class="form-group col-md-4">#}
+{#                <label for="inlineFormCustomSelectPref">Department</label>#}
+{#                <select class="form-control" id="inlineFormCustomSelectPref">#}
+{#                    <option selected>Choose...</option>#}
+{#                    <option value="1">CSE</option>#}
+{#                    <option value="2">EEE</option>#}
+{#                    <option value="3">TE</option>#}
+{#                    <option value="3">ME</option>#}
+{#                    <option value="3">CE</option>#}
+{#                </select>#}
+{#            </div>           #}
+{#         </div>#}
+{##}
+{#         <div class="form-row">#}
+{#             <div class="form-group col-md-4">#}
+{#                    <label for="inputFirstName">Day of Birth</label>#}
+{#                  <input type="date" class="form-control">#}
+{#            </div>#}
+{#         </div>#}
+{##}
+{#         <br>#}
+{#         -->#}
+{##}
+{#        <!-- <div class="form-row">#}
+{#            <div class="col-sm-2" style="font-size: x-large;">IT Experience </div>#}
+{#            <div class="col-sm-2">#}
+{#              <div class="form-check">#}
+{#                <input class="form-check-input" type="checkbox" id="gridCheck1">#}
+{#                <label class="form-check-label" for="gridCheck1">Hardware Expert</label>#}
+{#              </div>#}
+{#            </div>#}
+{#            <div class="col-sm-2">#}
+{#                <div class="form-check">#}
+{#                  <input class="form-check-input" type="checkbox" id="gridCheck1">#}
+{#                  <label class="form-check-label" for="gridCheck1">Software Expert</label>#}
+{#                </div>#}
+{#              </div>#}
+{#              <div class="col-sm-2">#}
+{#                <div class="form-check">#}
+{#                  <input class="form-check-input" type="checkbox" id="gridCheck1">#}
+{#                  <label class="form-check-label" for="gridCheck1">Graphics Expert</label>#}
+{#                </div>#}
+{#              </div>#}
+{#              <div class="col-sm-2">#}
+{#                <div class="form-check">#}
+{#                  <input class="form-check-input" type="checkbox" id="gridCheck1">#}
+{#                  <label class="form-check-label" for="gridCheck1">Network Expert</label>#}
+{#                </div>#}
+{#              </div>  #}
+{#        </div> -->#}
+
+
+
+
+
+
+{#        </div>#}
+{#         {% if form.non_field_errors %}#}
+{#           {% for error in form.non_field_errors %}#}
+{#            <p class="alert alert-danger my-3">{{error}}</p>#}
+{#           {% endfor %}#}
+{#         {% endif %}#}
+{#        <div class="btn">#}
+
+
+
+{#    <div class="col-sm-12">#}
+{#    <h4 class="text-center mb-3"><u>List of Candidate</u></h4>#}
+{#    {% for candidate in candidates %}#}
+{#     {{candidate.id}} : <a href="{% url 'candidate' candidate.id %}">{{candidate.name}}</a>#}
+{#     <hr>#}
+{#    {% endfor %}#}
+
+{#    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>#}
+{#    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>#}
+{##}
+{#    <script>#}
+{#   $( function() {#}
+{#     $( "#datepicker" ).datepicker();#}
+{#   } );#}
+{#  </script>#}
